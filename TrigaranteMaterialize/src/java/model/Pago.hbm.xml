@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2016 9:30:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Pago" table="pago" catalog="trigarante" optimistic-lock="version">
+        <id name="idPago" type="int">
+            <column name="idPago" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="aseguradora" class="model.Aseguradora" fetch="select">
+            <column name="idAseguradora" />
+        </many-to-one>
+        <many-to-one name="datosPago" class="model.DatosPago" fetch="select">
+            <column name="idDatosdePago" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadoNomina" class="model.EstadoNomina" fetch="select">
+            <column name="idEstadoNomina" not-null="true" />
+        </many-to-one>
+        <many-to-one name="nomina" class="model.Nomina" fetch="select">
+            <column name="idNomina" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="cantidad" type="big_decimal">
+            <column name="cantidad" precision="10" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" />
+        </property>
+        <property name="fechaPago" type="timestamp">
+            <column name="fechaPago" length="19" />
+        </property>
+        <property name="aplicado" type="java.lang.Integer">
+            <column name="aplicado" />
+        </property>
+        <property name="numPoliza" type="string">
+            <column name="numPoliza" length="50" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fechaInicio" length="10" />
+        </property>
+        <property name="comentarios" type="string">
+            <column name="comentarios" length="65535" not-null="true" />
+        </property>
+        <property name="seriePago" type="java.lang.Byte">
+            <column name="seriePago" />
+        </property>
+        <property name="aplicadoRen" type="java.lang.Integer">
+            <column name="aplicado_ren" />
+        </property>
+    </class>
+</hibernate-mapping>

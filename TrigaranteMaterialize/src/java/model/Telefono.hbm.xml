@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2016 9:30:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Telefono" table="telefono" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="campa&#195;&#177;a" class="model.Campa&#195;&#177;a" fetch="select">
+            <column name="idCampa&#195;&#177;a" not-null="true" />
+        </many-to-one>
+        <property name="numero" type="string">
+            <column name="numero" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

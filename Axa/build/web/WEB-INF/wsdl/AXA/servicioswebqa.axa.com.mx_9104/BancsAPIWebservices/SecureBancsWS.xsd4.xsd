@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://mx.com.axa.ws/FicherosVehiculosWS/xsd" xmlns:tns="http://mx.com.axa.ws/FicherosVehiculosWS/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:cmn="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://mx.com.axa.ws/FicherosVehiculosWS/">
+	
+<xs:import namespace="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" schemaLocation="SecureBancsWS.xsd7.xsd"/>
+	
+<xs:import namespace="http://www.w3.org/2005/05/xmlmime" schemaLocation="SecureBancsWS.xsd5.xsd"/>
+	
+<xs:element name="descargarFicheroRequest">
+		
+<xs:complexType>
+			
+<xs:sequence>
+				
+<xs:element name="agentInfo" type="cmn:agentInfo" minOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+<xs:element name="descargarFicheroResponse">
+		
+<xs:complexType>
+			
+<xs:sequence>
+				
+<xs:element name="file" type="xmime:base64Binary" xmime:expectedContentTypes="application/zip"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

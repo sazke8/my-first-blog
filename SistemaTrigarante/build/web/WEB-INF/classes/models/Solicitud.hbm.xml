@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2016 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Solicitud" table="solicitud" catalog="trigarante" optimistic-lock="version">
+        <id name="idSolicitud" type="int">
+            <column name="idSolicitud" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="campa&#195;&#177;a" class="models.Campa&#195;&#177;a" fetch="select">
+            <column name="idCampana" />
+        </many-to-one>
+        <many-to-one name="estadoSolicitud" class="models.EstadoSolicitud" fetch="select">
+            <column name="idEstadoSolicitud" />
+        </many-to-one>
+        <many-to-one name="pagina" class="models.Pagina" fetch="select">
+            <column name="idPagina" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="models.Usuario" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="50" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="50" />
+        </property>
+        <property name="cp" type="string">
+            <column name="cp" length="10" />
+        </property>
+        <property name="anio" type="date">
+            <column name="anio" length="0" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" length="50" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" length="100" />
+        </property>
+        <property name="cve" type="string">
+            <column name="cve" length="50" not-null="true" />
+        </property>
+        <property name="cobertura" type="string">
+            <column name="cobertura" not-null="true" />
+        </property>
+        <property name="primaTotal" type="big_decimal">
+            <column name="primaTotal" precision="10" not-null="true" />
+        </property>
+        <property name="comentarios" type="string">
+            <column name="comentarios" length="65535" />
+        </property>
+        <property name="fechaSolicitud" type="timestamp">
+            <column name="fechaSolicitud" length="19" />
+        </property>
+        <property name="idTipoContacto" type="java.lang.Byte">
+            <column name="idTipoContacto" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fechaNacimiento" length="10" not-null="true" />
+        </property>
+        <property name="sexo" type="char">
+            <column name="sexo" length="1" not-null="true" />
+        </property>
+        <set name="modalPymes" table="modalPyme" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSolicitud" not-null="true" />
+            </key>
+            <one-to-many class="models.ModalPyme" />
+        </set>
+        <set name="modalGastosMedicoses" table="modalGastosMedicos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSolicitud" not-null="true" />
+            </key>
+            <one-to-many class="models.ModalGastosMedicos" />
+        </set>
+        <set name="modalSeguroDeVidas" table="modalSeguroDeVida" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSolicitud" not-null="true" />
+            </key>
+            <one-to-many class="models.ModalSeguroDeVida" />
+        </set>
+        <set name="modalAsistencias" table="modalAsistencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSolicitud" />
+            </key>
+            <one-to-many class="models.ModalAsistencia" />
+        </set>
+        <set name="registros" table="registro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSolicitud" />
+            </key>
+            <one-to-many class="models.Registro" />
+        </set>
+        <set name="modalSeguroDeHogars" table="modalSeguroDeHogar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idSolicitud" not-null="true" />
+            </key>
+            <one-to-many class="models.ModalSeguroDeHogar" />
+        </set>
+    </class>
+</hibernate-mapping>

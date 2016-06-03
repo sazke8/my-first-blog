@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2016 1:01:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.EstadoNomina" table="estadoNomina" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="estado" type="string">
+            <column name="estado" length="30" not-null="true" />
+        </property>
+        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idEstadoNomina" not-null="true" />
+            </key>
+            <one-to-many class="model.Pago" />
+        </set>
+        <set name="endosos" table="endoso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idEstadoNomina" not-null="true" />
+            </key>
+            <one-to-many class="model.Endoso" />
+        </set>
+    </class>
+</hibernate-mapping>

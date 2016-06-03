@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS?wsdl" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.wsdl"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd2.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd2.xsd"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd4.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd4.xsd"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd1.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd1.xsd"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd6.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd6.xsd"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd7.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd7.xsd"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd5.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd5.xsd"/>
+    <system systemId="https://servicioswebqa.axa.com.mx:9104/BancsAPIWebservices/SecureBancsWS.xsd3.xsd" uri="src/conf/xml-resources/web-services/AXA/wsdl/servicioswebqa.axa.com.mx_9104/BancsAPIWebservices/SecureBancsWS.xsd3.xsd"/>
+</catalog>

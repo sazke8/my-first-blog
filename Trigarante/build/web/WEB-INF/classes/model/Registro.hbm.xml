@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2016 10:25:28 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Registro" table="registro" catalog="trigarante" optimistic-lock="version">
+        <id name="numPoliza" type="string">
+            <column name="numPoliza" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="aseguradora" class="model.Aseguradora" fetch="select">
+            <column name="idAseguradora" />
+        </many-to-one>
+        <many-to-one name="cliente" class="model.Cliente" fetch="select">
+            <column name="idCliente" />
+        </many-to-one>
+        <many-to-one name="estado" class="model.Estado" fetch="select">
+            <column name="idEstado" />
+        </many-to-one>
+        <many-to-one name="estadoRenovacion" class="model.EstadoRenovacion" fetch="select">
+            <column name="idEstadoRenovacion" />
+        </many-to-one>
+        <many-to-one name="solicitud" class="model.Solicitud" fetch="select">
+            <column name="idSolicitud" />
+        </many-to-one>
+        <many-to-one name="tipoPago" class="model.TipoPago" fetch="select">
+            <column name="idTipoPago" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoPoliza" class="model.TipoPoliza" fetch="select">
+            <column name="idTipoPoliza" />
+        </many-to-one>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="fechaInicio" type="date">
+            <column name="fechaInicio" length="10" />
+        </property>
+        <property name="numSerie" type="string">
+            <column name="numSerie" length="50" not-null="true" />
+        </property>
+        <property name="primaNeta" type="big_decimal">
+            <column name="PrimaNeta" precision="10" />
+        </property>
+        <property name="primaTotal" type="big_decimal">
+            <column name="PrimaTotal" precision="10" />
+        </property>
+        <property name="seriePago" type="java.lang.Byte">
+            <column name="seriePago" />
+        </property>
+        <property name="descuento" type="java.lang.Float">
+            <column name="descuento" precision="12" scale="0" />
+        </property>
+        <property name="fechaRegistro" type="date">
+            <column name="fechaRegistro" length="10" />
+        </property>
+        <property name="fechaProximaPago" type="date">
+            <column name="fechaProximaPago" length="10" />
+        </property>
+        <property name="archivo" type="string">
+            <column name="archivo" />
+        </property>
+        <property name="renovacion" type="java.lang.Integer">
+            <column name="renovacion" />
+        </property>
+        <property name="verificado" type="java.lang.Integer">
+            <column name="verificado" />
+        </property>
+        <property name="rnumPoliza" type="string">
+            <column name="rnumPoliza" length="50" />
+        </property>
+        <property name="rfechaInicio" type="date">
+            <column name="rfechaInicio" length="10" />
+        </property>
+        <property name="ridAseguradora" type="java.lang.Byte">
+            <column name="ridAseguradora" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" length="50" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="modelo" length="50" />
+        </property>
+        <property name="anio" type="string">
+            <column name="anio" length="50" />
+        </property>
+        <property name="submarca" type="string">
+            <column name="submarca" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

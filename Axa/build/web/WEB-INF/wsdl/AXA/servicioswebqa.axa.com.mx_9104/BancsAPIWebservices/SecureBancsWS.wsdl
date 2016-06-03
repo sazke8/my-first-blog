@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap11="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp200409="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsp200607="http://www.w3.org/2006/07/ws-policy" xmlns:ns0="http://axa.mx.bancs.integrator" targetNamespace="http://axa.mx.bancs.integrator">
+<wsdl:types xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema>
+<xsd:import schemaLocation="SecureBancsWS.xsd2.xsd" namespace="http://axa.mx/visor"/>
+<xsd:import schemaLocation="SecureBancsWS.xsd4.xsd" namespace="http://mx.com.axa.ws/FicherosVehiculosWS/"/>
+<xsd:import schemaLocation="SecureBancsWS.xsd1.xsd" namespace="http://webservices"/></xsd:schema></wsdl:types>
+<wsdl:message name="descargarFicheroRequest">
+<wsdl:part name="parameters" element="xsns:descargarFicheroRequest" xmlns:xsns="http://mx.com.axa.ws/FicherosVehiculosWS/"/></wsdl:message>
+<wsdl:message name="descargarFicheroResponse">
+<wsdl:part name="parameters" element="xsns:descargarFicheroResponse" xmlns:xsns="http://mx.com.axa.ws/FicherosVehiculosWS/"/></wsdl:message>
+<wsdl:message name="getCatalogueDetails">
+<wsdl:part name="parameters" element="xsns:getCatalogueDetails" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="getCatalogueDetailsResponse">
+<wsdl:part name="parameters" element="xsns:getCatalogueDetailsResponse" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="getEndorsementDetails">
+<wsdl:part name="parameters" element="xsns:getEndorsementDetails" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="getEndorsementDetailsResponse">
+<wsdl:part name="parameters" element="xsns:getEndorsementDetailsResponse" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="getIssuanceDetails">
+<wsdl:part name="parameters" element="xsns:getIssuanceDetails" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="getIssuanceDetailsResponse">
+<wsdl:part name="parameters" element="xsns:getIssuanceDetailsResponse" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="getPolicyDocument">
+<wsdl:part name="parameters" element="xsns:getDocument" xmlns:xsns="http://axa.mx/visor"/></wsdl:message>
+<wsdl:message name="getPolicyDocumentResponse">
+<wsdl:part name="parameters" element="xsns:getDocumentResponse" xmlns:xsns="http://axa.mx/visor"/></wsdl:message>
+<wsdl:message name="searchDetails">
+<wsdl:part name="parameters" element="xsns:searchDetails" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="searchDetailsResponse">
+<wsdl:part name="parameters" element="xsns:searchDetailsResponse" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="version">
+<wsdl:part name="parameters" element="xsns:version" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:message name="versionResponse">
+<wsdl:part name="parameters" element="xsns:versionResponse" xmlns:xsns="http://webservices"/></wsdl:message>
+<wsdl:portType name="integratorPort">
+<wsdl:operation name="descargarFicheroOperation">
+<wsdl:input name="descargarFicheroOperationRequest" message="ns0:descargarFicheroRequest"/>
+<wsdl:output name="descargarFicheroOperationResponse" message="ns0:descargarFicheroResponse"/></wsdl:operation>
+<wsdl:operation name="getCatalogueDetails">
+<wsdl:input name="getCatalogueDetailsRequest" message="ns0:getCatalogueDetails"/>
+<wsdl:output name="getCatalogueDetailsResponse" message="ns0:getCatalogueDetailsResponse"/></wsdl:operation>
+<wsdl:operation name="getEndorsementDetails">
+<wsdl:input name="getEndorsementDetailsRequest" message="ns0:getEndorsementDetails"/>
+<wsdl:output name="getEndorsementDetailsResponse" message="ns0:getEndorsementDetailsResponse"/></wsdl:operation>
+<wsdl:operation name="getIssuanceDetails">
+<wsdl:input name="getIssuanceDetailsRequest" message="ns0:getIssuanceDetails"/>
+<wsdl:output name="getIssuanceDetailsResponse" message="ns0:getIssuanceDetailsResponse"/></wsdl:operation>
+<wsdl:operation name="getPolicyDocument">
+<wsdl:input name="getPolicyDocumentRequest" message="ns0:getPolicyDocument"/>
+<wsdl:output name="getPolicyDocumentResponse" message="ns0:getPolicyDocumentResponse"/></wsdl:operation>
+<wsdl:operation name="searchDetails">
+<wsdl:input name="searchDetailsRequest" message="ns0:searchDetails"/>
+<wsdl:output name="searchDetailsResponse" message="ns0:searchDetailsResponse"/></wsdl:operation>
+<wsdl:operation name="version">
+<wsdl:input name="versionRequest" message="ns0:version"/>
+<wsdl:output name="versionResponse" message="ns0:versionResponse"/></wsdl:operation></wsdl:portType>
+<wsdl:binding name="integratorBancsSoap" type="ns0:integratorPort">
+<soap11:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<wsdl:operation name="descargarFicheroOperation">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/descargarFichero" style="document"/>
+<wsdl:input name="descargarFicheroOperationRequest">
+<soap11:body parts="parameters" use="literal"/></wsdl:input>
+<wsdl:output name="descargarFicheroOperationResponse">
+<soap11:body parts="parameters" use="literal"/></wsdl:output></wsdl:operation>
+<wsdl:operation name="getCatalogueDetails">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/getCatalogueDetails" style="document"/>
+<wsdl:input name="getCatalogueDetailsRequest">
+<soap11:body parts="parameters" use="literal"/></wsdl:input>
+<wsdl:output name="getCatalogueDetailsResponse">
+<soap11:body parts="parameters" use="literal"/></wsdl:output></wsdl:operation>
+<wsdl:operation name="getEndorsementDetails">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/getEndorsementDetails" style="document"/>
+<wsdl:input name="getEndorsementDetailsRequest">
+<soap11:body parts="parameters" use="literal"/></wsdl:input>
+<wsdl:output name="getEndorsementDetailsResponse">
+<soap11:body parts="parameters" use="literal"/></wsdl:output></wsdl:operation>
+<wsdl:operation name="getIssuanceDetails">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/getIssuanceDetails" style="document"/>
+<wsdl:input name="getIssuanceDetailsRequest">
+<soap11:body parts="parameters" use="literal"/></wsdl:input>
+<wsdl:output name="getIssuanceDetailsResponse">
+<soap11:body parts="parameters" use="literal"/></wsdl:output></wsdl:operation>
+<wsdl:operation name="getPolicyDocument">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/getPolicyDocument" style="document"/>
+<wsdl:input name="getPolicyDocumentRequest">
+<soap11:body parts="parameters" use="literal"/></wsdl:input>
+<wsdl:output name="getPolicyDocumentResponse">
+<soap11:body parts="parameters" use="literal"/></wsdl:output></wsdl:operation>
+<wsdl:operation name="searchDetails">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/searchDetails" style="document"/>
+<wsdl:input name="searchDetailsRequest">
+<soap11:body use="literal"/></wsdl:input>
+<wsdl:output name="searchDetailsResponse">
+<soap11:body use="literal"/></wsdl:output></wsdl:operation>
+<wsdl:operation name="version">
+<soap11:operation soapAction="http://axa.mx.bancs.integrator/version" style="document"/>
+<wsdl:input name="versionRequest">
+<soap11:body use="literal"/></wsdl:input>
+<wsdl:output name="versionResponse">
+<soap11:body use="literal"/></wsdl:output></wsdl:operation></wsdl:binding>
+<wsdl:service name="SecureBancsWSService">
+<wsdl:port name="integratorBancsSoap" binding="ns0:integratorBancsSoap">
+<soap11:address location="http://10.77.5.74:9104/BancsAPIWebservices/SecureBancsWS"/></wsdl:port></wsdl:service></wsdl:definitions>

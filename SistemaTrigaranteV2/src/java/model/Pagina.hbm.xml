@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2016 1:01:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Pagina" table="pagina" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="aseguradora" class="model.Aseguradora" fetch="select">
+            <column name="idAseguradora" not-null="true" />
+        </many-to-one>
+        <many-to-one name="campa&#195;&#177;a" class="model.Campa&#195;&#177;a" fetch="select">
+            <column name="idCampa&#195;&#177;a" not-null="true" />
+        </many-to-one>
+        <property name="url" type="string">
+            <column name="url" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="50" />
+        </property>
+        <property name="estatus" type="int">
+            <column name="estatus" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="timestamp">
+            <column name="fechaRegistro" length="19" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fechaActualizacion" length="19" />
+        </property>
+        <property name="fechaUltimoCorte" type="timestamp">
+            <column name="fechaUltimoCorte" length="19" />
+        </property>
+        <set name="solicituds" table="solicitud" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPagina" not-null="true" />
+            </key>
+            <one-to-many class="model.Solicitud" />
+        </set>
+        <set name="costoses" table="costos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPagina" not-null="true" />
+            </key>
+            <one-to-many class="model.Costos" />
+        </set>
+    </class>
+</hibernate-mapping>

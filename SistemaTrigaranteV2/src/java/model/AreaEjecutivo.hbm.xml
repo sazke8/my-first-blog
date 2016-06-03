@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2016 1:01:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.AreaEjecutivo" table="areaEjecutivo" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="area" class="model.Area" fetch="select">
+            <column name="idArea" />
+        </many-to-one>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="contador" type="java.lang.Integer">
+            <column name="contador" />
+        </property>
+        <property name="actualizacion" type="timestamp">
+            <column name="actualizacion" length="19" />
+        </property>
+        <property name="permiso" type="java.lang.Byte">
+            <column name="permiso" />
+        </property>
+        <set name="modalSeguroDeVidas" table="modalSeguroDeVida" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="model.ModalSeguroDeVida" />
+        </set>
+        <set name="modalAsistencias" table="modalAsistencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" />
+            </key>
+            <one-to-many class="model.ModalAsistencia" />
+        </set>
+        <set name="modalGastosMedicoses" table="modalGastosMedicos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="model.ModalGastosMedicos" />
+        </set>
+        <set name="modalSeguroDeHogars" table="modalSeguroDeHogar" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="model.ModalSeguroDeHogar" />
+        </set>
+        <set name="selectorAsistencias" table="selectorAsistencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="model.SelectorAsistencia" />
+        </set>
+        <set name="modalPymes" table="modalPyme" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="model.ModalPyme" />
+        </set>
+    </class>
+</hibernate-mapping>

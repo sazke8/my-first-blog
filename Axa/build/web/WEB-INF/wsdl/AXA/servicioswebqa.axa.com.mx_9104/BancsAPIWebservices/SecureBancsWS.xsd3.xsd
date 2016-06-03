@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tcs.com/BancsAPIWebservices/BancsAPIWebservices" xmlns:cmn="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" targetNamespace="http://www.tcs.com/BancsAPIWebservices/BancsAPIWebservices" version="1.0">
+	
+<xsd:import namespace="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" schemaLocation="SecureBancsWS.xsd7.xsd"/>
+	
+<!-- TODO AddRisk -->
+	
+<xsd:element name="addRiskResponse" type="tns:addRiskResponse"/>
+	
+<xsd:complexType name="addRiskRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="addRisk" type="tns:addRisk" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:element name="addRiskRequest" type="tns:addRiskRequest"/>
+	
+<xsd:complexType name="addRisk">
+		
+<xsd:sequence>
+			
+<xsd:element minOccurs="0" name="userCode" type="xsd:string"/>
+			
+<xsd:element minOccurs="0" name="roleCode" type="xsd:string"/>
+			
+<xsd:element minOccurs="0" name="requestId" type="xsd:string"/>
+			
+<xsd:element minOccurs="0" name="productCode" type="cmn:productCode"/>
+			
+<xsd:element minOccurs="1" name="policyNumber" type="xsd:string"/>
+			
+<xsd:element minOccurs="1" name="executeOperation" type="cmn:executeOperation"/>
+			
+<xsd:element maxOccurs="unbounded" minOccurs="1" name="addRiskInfo" nillable="true" type="cmn:riskInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="addRiskResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="riskEndorsementDetails" type="tns:riskEndorsementDetails" minOccurs="0"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="riskEndorsementDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementeffectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="receiptsInfo" type="cmn:receiptsInfo" minOccurs="1"/>
+			
+<xsd:element name="addRiskDetails" type="cmn:riskInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- TODO Cancellation -->
+	
+<xsd:element name="cancellationRequest" type="tns:cancellationRequest"/>
+	
+<xsd:element name="cancellationResponse" type="tns:cancellationResponse"/>
+	
+<xsd:complexType name="cancellationRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="cancellation" type="tns:cancellation" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="cancellation">
+		
+<xsd:sequence>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="initiatedBy" minOccurs="0">
+				
+<xsd:simpleType>
+					
+<xsd:restriction base="xsd:string">
+						
+<xsd:enumeration value="company"/>
+						
+<xsd:enumeration value="insured"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+<xsd:element name="cancellationType" minOccurs="0">
+				
+<xsd:simpleType>
+					
+<xsd:restriction base="xsd:string">
+						
+<xsd:enumeration value="proRata"/>
+						
+<xsd:enumeration value="shortTerm"/>
+						
+<xsd:enumeration value="flat"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="cancellationDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="reason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="executeOperation" type="cmn:executeOperation" minOccurs="1"/>
+			
+<!--
+				Check whether cancellation to be performed or generate only the
+				quote
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="cancellationResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="cancellationDetails" type="tns:cancellationDetails" minOccurs="0"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="cancellationDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="lastEndorsementNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="lastEndorsementType" type="cmn:EndorsementType" minOccurs="0"/>
+			
+<xsd:element name="policyStatus" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="cancellationeffectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="receiptsInfo" type="cmn:receiptsInfo" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- TODO Catalogue -->
+	
+<xsd:element name="catalogueRequest" type="tns:catalogueRequest"/>
+	
+<xsd:element name="catalogueResponse" type="tns:catalogueResponse"/>
+	
+<xsd:complexType name="catalogueRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="catalogue" type="tns:catalogue" minOccurs="1"/>
+			
+<xsd:element name="agentInfo" type="cmn:agentInfo" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="catalogue">
+		
+<xsd:sequence>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="catalogueName" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="catalogueResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="catalogueDetails" type="tns:catalogueDetails" minOccurs="0"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="catalogueDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="catalogueName" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="domainList" type="tns:domainList" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="domainList">
+		
+<xsd:sequence>
+			
+<xsd:element name="itemCode" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="itemValue" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- TODO Endorsement -->
+	
+<xsd:element name="endorsementRequest" type="tns:endorsementRequest"/>
+	
+<xsd:element name="endorsementResponse" type="tns:endorsementResponse"/>
+	
+<xsd:complexType name="endorsementRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="endorsement" type="tns:endorsement" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorsement">
+		
+<xsd:sequence>
+			
+<xsd:element name="generalInfo" type="tns:generalInfo" minOccurs="0"/>
+			
+<xsd:element name="agentInfo" type="cmn:agentInfo" minOccurs="1"/>
+			
+<!-- Not for endorsement -->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="generalInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="typeOfEndorsement" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsementEffectiveDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="policyEffectiveDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="MainAgent" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="groupId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="contractNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="executeOperation" type="cmn:executeOperation" minOccurs="1"/>
+			
+<xsd:element name="endorseRiskInfo" type="tns:endorseRiskInfo" minOccurs="0"/>
+			
+<!--updated-->
+			
+<xsd:element name="endorseCustomerInfo" type="tns:endorseCustomerInfo" minOccurs="0"/>
+			
+<xsd:element name="endorseCoverInfo" type="tns:endorseCoverInfo" minOccurs="0"/>
+			
+<xsd:element name="endorsePaymentInfo" type="tns:endorsePaymentInfo" minOccurs="0"/>
+			
+<xsd:element name="endorseAgentInfo" type="tns:endorseAgentInfo" minOccurs="0"/>
+			
+<xsd:element name="endorseCardInfo" type="cmn:cardInfo" minOccurs="0" maxOccurs="2"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorseRiskInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="action" type="cmn:action" minOccurs="1"/>
+			
+<!--
+				risk will be deleted from the policy when the option is "delete";
+				All the below risk details will be ignored
+			-->
+			
+<xsd:element name="endorsevehicleDetails" type="cmn:riskInfo" nillable="true" minOccurs="1"/>
+			
+<!-- riskNumber is mandatory when the action is "update" or "delete" -->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorseCustomerInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="action" type="cmn:action" minOccurs="1"/>
+			
+<!--
+				customer will be deleted from the policy when the option is
+				"delete"; All the below customer details will be ignored
+			-->
+			
+<xsd:element name="endorseCustomerDetails" type="cmn:partyInfo" nillable="true" minOccurs="1"/>
+			
+<!--
+				Customer code is mandatory when the action is "update" or "delete"
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorseCoverInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="action" type="cmn:action" minOccurs="1"/>
+			
+<!--
+				Cover will be deleted from the policy when the option is "delete";
+				All the below Cover details will be ignored
+			-->
+			
+<xsd:element name="endorsecoverageDetails" type="cmn:coverageInfo" nillable="true" minOccurs="1"/>
+			
+<!-- Cover code is mandatory when the action is "update" or "delete" -->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorsePaymentInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="paymentFrequency" type="cmn:paymentFrequency" minOccurs="0"/>
+			
+<xsd:element name="paymentMode" type="cmn:paymentMode" minOccurs="0"/>
+			
+<xsd:element name="paymentByAgent" type="cmn:paymentByAgent" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorseAgentInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="oldAgentCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="newAgentCode" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorsementResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementDetails" type="tns:endorsementDetails" minOccurs="0"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorsementDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="effectiveDate" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="followupDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="expiryDate" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsePartyDetails" type="tns:endorsePartyDetails" minOccurs="1"/>
+			
+<xsd:element name="endorsereceiptDetails" type="tns:endorseReceiptDetails" minOccurs="0"/>
+			
+<xsd:element name="endorsementDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorsePartyDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="partyDetails" type="cmn:partyInfo" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="endorseReceiptDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="currency" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="totalReceipts" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="totalReceiptsInfo" type="cmn:receiptsInfo" minOccurs="1"/>
+			
+<xsd:element name="firstReceiptDetails" type="cmn:receiptsInfo" minOccurs="0"/>
+			
+<xsd:element name="otherReceiptDetails" type="cmn:receiptsInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- TODO Issuance -->
+	
+<xsd:element name="issuanceRequest" type="tns:issuanceRequest"/>
+	
+<xsd:element name="issuanceResponse" type="tns:issuanceResponse"/>
+	
+<xsd:complexType name="issuanceRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="issuance" type="tns:issuance" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="issuance">
+		
+<xsd:sequence>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="productCode" type="cmn:productCode" minOccurs="1"/>
+			
+<xsd:element name="typeOperation" minOccurs="1">
+				
+<xsd:simpleType>
+					
+<xsd:restriction base="xsd:string">
+						
+<xsd:enumeration value="ExpressQuote"/>
+						
+<xsd:enumeration value="Quotation"/>
+						
+<xsd:enumeration value="Issuance"/>
+						
+<xsd:enumeration value="ReQuotation"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+<xsd:element name="issuePolicyInfo" type="tns:issuePolicyInfo" minOccurs="1"/>
+			
+<!-- start CR 264 -->
+			
+<xsd:element minOccurs="0" name="carruselValidation" type="xsd:boolean"/>
+			
+<xsd:element minOccurs="0" maxOccurs="16" name="packageCoverInfo" type="tns:packageCoverInfo"/>
+			
+<!-- end CR 264 -->
+			
+<xsd:element name="quickQuoteInfo" type="tns:quickQuoteInfo" minOccurs="1" maxOccurs="unbounded"/>
+			
+<!-- Mandatory Input for Quick Quote/Quote/Issuance -->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="issuePolicyInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="issuancePolicyInfo" type="cmn:policyInfo" minOccurs="0"/>
+			
+<xsd:element name="sumInsured" type="xsd:decimal" minOccurs="0"/>
+			
+<!-- Input only for AXA Contigo -->
+			
+<xsd:element name="netPremium" type="cmn:netPremium" minOccurs="0"/>
+			
+<!-- Input only for AXA Contigo -->
+			
+<xsd:element name="tax" type="cmn:tax" minOccurs="0"/>
+			
+<!-- Input only for AXA Contigo -->
+			
+<xsd:element name="issuanceRiskInfo" type="cmn:riskInfo" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="issuanceCustomerInfo" type="cmn:partyInfo" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="issuanceCardInfo" type="cmn:cardInfo" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="issuanceAgentInfo" type="cmn:agentInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="quickQuoteInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="paymentFrequency" type="cmn:paymentFrequency" minOccurs="1"/>
+			
+<!-- Unbounded only for Quick Quote -->
+			
+<xsd:element name="package" type="xsd:string" minOccurs="0"/>
+			
+<!-- Unbounded only for Quick Quote -->
+		</xsd:sequence>
+		
+<!-- Input Only for Quick Quote/Quote/Issuance -->
+	</xsd:complexType>
+	
+<!-- start CR 264 -->
+	
+<xsd:complexType name="packageCoverInfo">
+		
+<!-- Input Only for Quick Quote/Quote/Issuance -->
+		
+<xsd:sequence>
+			
+<xsd:element minOccurs="1" name="paymentFrequency" type="cmn:paymentFrequency"/>
+			
+<!-- Unbounded only for Quick Quote -->
+			
+<xsd:element minOccurs="1" name="package" type="xsd:string"/>
+			
+<!-- Unbounded only for Quick Quote -->
+			
+<xsd:element minOccurs="0" maxOccurs="unbounded" name="riskCoverDetails" type="cmn:coverageInfo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<!-- end CR 264 -->
+	
+<xsd:complexType name="issuanceResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="issuanceDetails" type="tns:issuanceDetails" minOccurs="0"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="issuanceDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="issuepolicyDeatils" type="tns:issuePolicyDeatils" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<!-- Unbounded only based on SubGroup and Ramo -->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="issuePolicyDeatils">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="0"/>
+			
+<!-- Not required for Quick Quote -->
+			
+<xsd:element name="policyType" type="cmn:policyType" minOccurs="1"/>
+			
+<xsd:element name="policyIssued" minOccurs="1">
+				
+<xsd:simpleType>
+					
+<xsd:restriction base="xsd:string">
+						
+<xsd:enumeration value="YES"/>
+						
+<xsd:enumeration value="NO"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+<xsd:element name="startDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="expiryDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="applicationDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="riskCount" type="xsd:integer" minOccurs="1"/>
+			
+<xsd:element name="paymentMode" type="cmn:paymentMode" minOccurs="0"/>
+			
+<xsd:element name="currency" type="cmn:currency" minOccurs="0"/>
+			
+<!-- Added For CR 181 -->
+			
+<xsd:element name="collectionDay" type="xsd:integer" minOccurs="0"/>
+			
+<!-- Input / Output -->
+			
+<!-- Added For CR 215 STARTS -->
+			
+<xsd:element name="rcFolioNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="subSegmentoNegocio" type="xsd:string" minOccurs="0"/>
+			
+<!-- Added For CR 215 ENDS -->
+			
+<xsd:element name="quoteInfo" type="tns:quoteInfo" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="discount" type="cmn:discount" minOccurs="1"/>
+			
+<xsd:element name="vehicleInfo" type="cmn:riskInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="customerDetails" type="cmn:partyInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="coverageInfo" type="cmn:coverageInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="quoteInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="paymentFrequency" type="cmn:paymentFrequency" minOccurs="1"/>
+			
+<xsd:element name="package" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="receiptsInfo" type="cmn:receiptsInfo" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+		
+<!-- Multiple for Quick Quote, Single for Quote and Issuance -->
+	</xsd:complexType>
+	
+<!-- TODO MultiSearch -->
+	
+<xsd:element name="multiSearchRequest" type="tns:multiSearchRequest"/>
+	
+<xsd:element name="multiSearchResponse" type="tns:multiSearchResponse"/>
+	
+<xsd:complexType name="multiSearchRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="multiSearch" type="tns:multiSearch" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="multiSearch">
+		
+<xsd:sequence>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="agentId" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="fromDate" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="toDate" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="origin" type="tns:origin" minOccurs="0"/>
+			
+<xsd:element name="taxId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="policyType" type="cmn:policyType" minOccurs="0"/>
+			
+<xsd:element name="subBranch" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="productCode" type="cmn:productCode" minOccurs="0"/>
+			
+<xsd:element name="searchType" type="cmn:searchType" minOccurs="1"/>
+			
+<!--
+				PolicyNumber if searchType POLICY/ Quote Number if searchType QUOTE
+			-->
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="customerCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="customerName" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="mothersSurname" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="fathersSurname" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="multiSearchResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="multiSearchPolicyDetails" type="tns:multiSearchPolicyDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="multiSearchPolicyDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="origen" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="searchPolicyInfo" type="cmn:policyInfo" minOccurs="1"/>
+			
+<xsd:element name="otherPolicyInfo" type="cmn:otherPolicyInfo" minOccurs="0"/>
+			
+<xsd:element name="agentId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="lastEndorsementNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="lastEndorsementType" type="cmn:EndorsementType" minOccurs="0"/>
+			
+<xsd:element name="searchType" type="cmn:searchType" minOccurs="0"/>
+			
+<xsd:element name="receiptsInfo" type="cmn:receiptsInfo" minOccurs="1"/>
+			
+<xsd:element name="multiSearchVehicleDetails" type="tns:multiSearchVehicleDetails" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="multiSearchVehicleDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="vehicleInfo" type="cmn:riskInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:simpleType name="origin">
+		
+<xsd:restriction base="xsd:string">
+			
+<xsd:enumeration value="BACK OFFICE"/>
+			
+<xsd:enumeration value="BATCH"/>
+			
+<xsd:enumeration value="WEBSERVICE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+<!-- TODO Search -->
+	
+<xsd:element name="searchRequest" type="tns:searchRequest"/>
+	
+<xsd:element name="searchResponse" type="tns:searchResponse"/>
+	
+<xsd:complexType name="searchRequest">
+		
+<xsd:sequence>
+			
+<xsd:element name="search" type="tns:search" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="search">
+		
+<xsd:sequence>
+			
+<xsd:element name="userCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="roleCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="agentInfo" type="cmn:agentInfo" minOccurs="1"/>
+			
+<xsd:element name="searchType" type="cmn:searchType" minOccurs="1"/>
+			
+<!--
+				PolicyNumber if searchType POLICY/ Quote Number if searchType QUOTE
+			-->
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="coverageCode" type="xsd:string" minOccurs="0"/>
+			
+<!-- Consider only when Filter "COVERAGE_INFO" is selected -->
+			
+<xsd:element name="customerCode" type="xsd:string" minOccurs="0"/>
+			
+<!-- Consider only when Filter "CUSTOMER_INFO" is selected -->
+			
+<xsd:element name="customerRole" type="xsd:string" minOccurs="0"/>
+			
+<!-- Consider only when Filter "CUSTOMER_INFO" is selected -->
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="searchFilter" minOccurs="1" maxOccurs="unbounded">
+				
+<xsd:simpleType>
+					
+<xsd:restriction base="xsd:string">
+						
+<xsd:enumeration value="GENERAL_INFO"/>
+						
+<xsd:enumeration value="CUSTOMER_INFO"/>
+						
+<xsd:enumeration value="FINANCIAL_ENDORSE_INFO"/>
+						
+<xsd:enumeration value="NONFINANCIAL_ENDORSE_INFO"/>
+						
+<xsd:enumeration value="RECEIPTS_INFO"/>
+						
+<xsd:enumeration value="COVERAGE_INFO"/>
+						
+<xsd:enumeration value="SPECIALEQUIP_INFO"/>
+						
+<xsd:enumeration value="BENEFICIARY_INFO"/>
+						
+<xsd:enumeration value="DRIVER_INFO"/>
+						
+<xsd:enumeration value="ACCIDENT_BENEFICIARY_INFO"/>
+						
+<xsd:enumeration value="RENEWAL_QUOTE_INFO"/>
+						
+<xsd:enumeration value="CARD_INFO"/>
+						
+<!-- Added for CR-162 -->
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+<xsd:element name="renewalQuoteNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="previousPolicyNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="fichaNumber" type="xsd:integer" minOccurs="0"/>
+			
+<xsd:element name="fichaVersion" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="fichaYear" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="agentCode" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchResponse">
+		
+<xsd:sequence>
+			
+<xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="searchDetails" type="tns:searchDetails" minOccurs="0"/>
+			
+<xsd:element name="errorDetails" type="cmn:errorDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchDetails">
+		
+<xsd:sequence>
+			
+<xsd:element name="searchGeneralInfo" type="tns:searchGeneralInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="searchCustomerInfo" type="tns:searchCustomerInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="financialEndorseInfo" type="tns:financialEndorseInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="nonFinancialEndorseInfo" type="tns:nonFinancialEndorseInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="searchReceiptsInfo" type="tns:searchReceiptsInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			
+<xsd:element name="searchCoverageInfo" type="tns:searchCoverageInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="searchSpecialEquipInfo" type="tns:searchSpecialEquipInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="searchBeneficiaryInfo" type="tns:searchBeneficiaryInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="searchDriverInfo" type="tns:searchDriverInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="searchAccBeneficiaryInfo" type="tns:searchAccBeneficiaryInfo" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchGeneralInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="searchPolicyInfo" type="cmn:policyInfo" minOccurs="0"/>
+			
+<xsd:element name="otherPolicyInfo" type="cmn:otherPolicyInfo" minOccurs="0"/>
+			
+<xsd:element name="cancelDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="agentCode" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="contributionCenter" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="searchVehicleInfo" type="tns:searchVehicleInfo" nillable="true" minOccurs="0"/>
+			
+<xsd:element name="productCode" type="cmn:productCode" minOccurs="0"/>
+			
+<xsd:element name="policyReceiptsInfo" type="cmn:receiptsInfo" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchVehicleInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="vehicleInfo" type="cmn:riskInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchCustomerInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="customerInfo" type="cmn:partyInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="financialEndorseInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorseReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="effectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="receiptsInfo" type="cmn:receiptsInfo" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="nonFinancialEndorseInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="effectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="previousValue" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="currentValue" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchReceiptsInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="effectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="paymentPurpose" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="dueDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="paymentDate" type="xsd:date" minOccurs="0"/>
+			
+<xsd:element name="receiptNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="receiptStatus" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="receiptSeries" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="receiptAmount" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchCoverageInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="0"/>
+			
+<!-- covers added during  the endorsement -->
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="effectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="coverageInfo" type="cmn:coverageInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchSpecialEquipInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="endorsementNumber" type="xsd:string" minOccurs="0"/>
+			
+<!-- equipments added during  the endorsement -->
+			
+<xsd:element name="endorsementReason" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="effectiveDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="executionDate" type="xsd:date" minOccurs="1"/>
+			
+<xsd:element name="adaptationsInfo" type="cmn:adaptationsInfo" minOccurs="0" maxOccurs="unbounded"/>
+			
+<!-- Output Only -->
+			
+<xsd:element name="specialEquipInfo" type="cmn:specialEquipInfo" minOccurs="0" maxOccurs="unbounded"/>
+			
+<!-- Output Only -->
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchBeneficiaryInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="beneficiaryInfo" type="cmn:partyInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchDriverInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="driverInfo" type="cmn:partyInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="searchAccBeneficiaryInfo">
+		
+<xsd:sequence>
+			
+<xsd:element name="policyNumber" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="riskNumber" type="xsd:string" minOccurs="0"/>
+			
+<xsd:element name="accBeneficiaryInfo" type="cmn:partyInfo" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

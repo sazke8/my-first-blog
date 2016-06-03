@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ver Usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1 align="center">Gaceta Digital Politécnica</h1>
+        <h2 align="center">Vista de Usuario</h2>
+        
+        <f:view>
+                    <h:form id="frmUsuario">
+                        <h:inputHidden id="Usuario" />
+                        <h:panelGrid columns="2">
+                            <h:outputText value="idUsuario"/>
+                            <p:inputText value="#{consultarUsuariosController.user.idUsuario}"/>
+                            <h:outputText value="Existencia"/>
+                            <p:inputText value="#{consultarUsuariosController.user.nombre}" />
+                            <h:outputText value="Apellido Paterno"/>
+                            <p:inputText value="#{consultarUsuariosController.user.apellidoP}"/>
+                            <h:outputText value="Apellido Materno"/>
+                            <p:inputText value="#{consultarUsuariosController.user.apellidoM}"/>
+                            <h:outputText value="Usuario"/>
+                            <p:inputText value="#{consultarUsuariosController.user.usuario}" />
+                            <h:outputText value="Correo"/>
+                            <p:inputText value="#{consultarUsuariosController.user.email}" />
+                            <h:outputText value="Password"/>
+                            <p:inputText value="#{consultarUsuariosController.user.password}" />
+                            <p:commandButton
+                                value="Guardar"
+                                
+                                ajax="false"
+                                image="ui-icon ui-icon-disk"
+                                />
+                            <p:commandButton
+                                value="Regresar"
+                                action="buscarUsuario.xhtml"
+                                ajax="false"
+                                
+                                image="ui-icon ui-icon-arrow-1-w"/>
+                        </h:panelGrid>
+                    </h:form>
+                </f:view>
+    </h:body>
+</html>
+

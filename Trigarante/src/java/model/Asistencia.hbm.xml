@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2016 10:25:28 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Asistencia" table="asistencia" catalog="trigarante" optimistic-lock="version">
+        <id name="idAsistencia" type="string">
+            <column name="idAsistencia" length="50" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="estadoAsistencia" class="model.EstadoAsistencia" fetch="select">
+            <column name="idEstado" />
+        </many-to-one>
+        <many-to-one name="metodoPago" class="model.MetodoPago" fetch="select">
+            <column name="idMetodoPago" />
+        </many-to-one>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="fechaRegistro" type="date">
+            <column name="fechaRegistro" length="10" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fechaInicio" length="10" />
+        </property>
+        <property name="monto" type="big_decimal">
+            <column name="monto" precision="10" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" />
+        </property>
+        <property name="apellidoP" type="string">
+            <column name="apellidoP" />
+        </property>
+        <property name="apellidoM" type="string">
+            <column name="apellidoM" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="50" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="50" />
+        </property>
+        <property name="telefonoOpc" type="string">
+            <column name="telefonoOpc" length="50" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="65535" />
+        </property>
+        <property name="colonia" type="string">
+            <column name="colonia" />
+        </property>
+        <property name="cp" type="string">
+            <column name="cp" length="10" />
+        </property>
+        <property name="localidad" type="string">
+            <column name="localidad" />
+        </property>
+        <property name="estado" type="java.lang.Integer">
+            <column name="estado" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fechaNacimiento" length="10" />
+        </property>
+        <property name="sexo" type="java.lang.Character">
+            <column name="sexo" length="1" />
+        </property>
+        <property name="tarjeta" type="string">
+            <column name="tarjeta" length="50" />
+        </property>
+        <property name="vencimiento" type="date">
+            <column name="vencimiento" length="10" />
+        </property>
+        <property name="titular" type="string">
+            <column name="titular" />
+        </property>
+        <property name="codigoSeg" type="string">
+            <column name="codigoSeg" length="15" />
+        </property>
+        <property name="cdEstado" type="java.lang.Character">
+            <column name="cdEstado" length="1" />
+        </property>
+        <property name="fechaBaja" type="date">
+            <column name="fechaBaja" length="10" />
+        </property>
+        <property name="column27" type="java.lang.Integer">
+            <column name="`Column 27`" />
+        </property>
+    </class>
+</hibernate-mapping>

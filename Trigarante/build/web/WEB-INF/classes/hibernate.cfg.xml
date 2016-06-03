@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/trigarante?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <mapping resource="model/UsuarioVip.hbm.xml"/>
+    <mapping resource="model/Solicitud.hbm.xml"/>
+    <mapping resource="model/Registro.hbm.xml"/>
+    <mapping resource="model/Asistencia.hbm.xml"/>
+    <mapping resource="model/EstadoDeCuenta.hbm.xml"/>
+    <mapping resource="model/Usuario.hbm.xml"/>
+    <mapping resource="model/Campaña.hbm.xml"/>
+    <mapping resource="model/Costos.hbm.xml"/>
+    <mapping resource="model/ModalSeguroDeVida.hbm.xml"/>
+    <mapping resource="model/EstadoAsistencia.hbm.xml"/>
+    <mapping resource="model/Ranking.hbm.xml"/>
+    <mapping resource="model/Area.hbm.xml"/>
+    <mapping resource="model/MetodoPago.hbm.xml"/>
+    <mapping resource="model/Endoso.hbm.xml"/>
+    <mapping resource="model/EstadoNomina.hbm.xml"/>
+    <mapping resource="model/Telefono.hbm.xml"/>
+    <mapping resource="model/EstadoRenovacion.hbm.xml"/>
+    <mapping resource="model/Aseguradora.hbm.xml"/>
+    <mapping resource="model/Buscador.hbm.xml"/>
+    <mapping resource="model/DatosPago.hbm.xml"/>
+    <mapping resource="model/ModalGastosMedicos.hbm.xml"/>
+    <mapping resource="model/ModalAsistencia.hbm.xml"/>
+    <mapping resource="model/TipoPoliza.hbm.xml"/>
+    <mapping resource="model/PaginaEjecutivo.hbm.xml"/>
+    <mapping resource="model/Estado.hbm.xml"/>
+    <mapping resource="model/EstadoSolicitud.hbm.xml"/>
+    <mapping resource="model/Rol.hbm.xml"/>
+    <mapping resource="model/Pagina.hbm.xml"/>
+    <mapping resource="model/TipoEndoso.hbm.xml"/>
+    <mapping resource="model/CatalogoDeConceptos.hbm.xml"/>
+    <mapping resource="model/ModalSeguroDeHogar.hbm.xml"/>
+    <mapping resource="model/TipoPago.hbm.xml"/>
+    <mapping resource="model/Nomina.hbm.xml"/>
+    <mapping resource="model/Bancos.hbm.xml"/>
+    <mapping resource="model/ModalPyme.hbm.xml"/>
+    <mapping resource="model/TipoEgreso.hbm.xml"/>
+    <mapping resource="model/SelectorAsistencia.hbm.xml"/>
+    <mapping resource="model/AreaEjecutivo.hbm.xml"/>
+    <mapping resource="model/Pago.hbm.xml"/>
+    <mapping resource="model/Cliente.hbm.xml"/>
+    <mapping resource="model/Ucis.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

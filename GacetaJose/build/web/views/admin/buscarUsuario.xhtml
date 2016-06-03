@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Usuarios</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1 align="center">Gaceta Digital Politécnica</h1>
+        <h2 align="center"> Usuarios del Sistema</h2>
+            <p:commandButton value="Nuevo Usuario" action="nuevoUsuario.xhtml"/>
+    
+        <p:separator/>
+        <h:form>
+            <p:dataTable value="#{consultarUsuariosController.lista}" var="usuario" 
+                         paginator="true" rows="5"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15" currentPageReportTemplate="Página: ({currentPage} de {totalPages})"
+                         paginatorPosition="bottom">
+              <p:column headerText="Id" filterBy="#{usuario.idUsuario}" filterMatchMode="contains">
+                  <h:outputText value="#{usuario.idUsuario}"/>
+              </p:column>
+            
+              <p:column headerText="Usuario" filterBy="#{usuario.usuario}" filterMatchMode="contains">
+                <h:outputText value="#{usuario.usuario}"/>
+              </p:column>
+            
+              <p:column headerText="Nombre" filterBy="#{usuario.nombre} #{usuario.apellidoP} #{usuario.apellidoM}" filterMatchMode="contains">
+                <h:outputText value="#{usuario.nombre} #{usuario.apellidoP} #{usuario.apellidoM}"/>
+              </p:column>
+            
+              <p:column headerText="Correo" filterBy="#{usuario.email}" filterMatchMode="contains">
+                <h:outputText value="#{usuario.email}"/>
+              </p:column>
+              
+             <p:column>
+                 <f:facet name="header">
+                      <h:outputText value="Acciones"/>
+                 </f:facet>
+                 <p:commandButton
+                                    action="verUsuario.xhtml"
+                                    value="Ver"
+                                    immediate="true"
+                                    actionListener="#{consultarUsuariosController.verUsuario}"
+                                    ajax="false"
+                                    image="ui-icon ui-icon-pencil"
+                                    >
+                                    <f:param
+                                        name="idUsuario"
+                                        value="#{usuario.idUsuario}" />
+                                    </p:commandButton>
+                
+                 <p:commandButton
+                                    action="ver.xhtml"
+                                    value="Eliminar"
+                                    immediate="true"
+                                    
+                                    ajax="false"
+                                    image="ui-icon ui-icon-trash"
+                                    >
+                                    <f:param
+                                        name="idUsuario"
+                                        value="#{usuario.idUsuario}" />
+                                    </p:commandButton>
+                     
+                 
+         
+            </p:column> 
+         </p:dataTable>
+        </h:form>     
+    </h:body>
+</html>

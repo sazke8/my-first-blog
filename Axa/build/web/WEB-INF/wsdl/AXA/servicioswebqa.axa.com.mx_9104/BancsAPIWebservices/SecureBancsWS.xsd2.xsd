@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://axa.mx.bancs.integrator" xmlns:bancs="http://webservices" xmlns:fic="http://mx.com.axa.ws/FicherosVehiculosWS/" xmlns:ecm="http://axa.mx/ecm" xmlns:vis="http://axa.mx/visor" xmlns:printing="http://axa.mx/impresion/GenerateDocumentService/" xmlns:cmn="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" elementFormDefault="unqualified" targetNamespace="http://axa.mx/visor">
+			
+<xsd:import namespace="http://axa.mx/ecm" schemaLocation="SecureBancsWS.xsd6.xsd"/>
+			
+<xsd:import namespace="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" schemaLocation="SecureBancsWS.xsd7.xsd"/>
+			
+<xsd:element name="getDocument">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:choice>
+							
+<xsd:element name="downloadDocument" type="ecm:downloadDocument"/>
+							
+<xsd:element name="viewDocument" type="ecm:viewDocument"/>
+						</xsd:choice>
+						
+<xsd:element name="agentInfo" type="cmn:agentInfo"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="getDocumentResponse">
+				
+<xsd:complexType>
+					
+<xsd:choice>
+						
+<xsd:element name="downloadDocumentResponse" type="ecm:downloadDocumentResponse"/>
+						
+<xsd:element name="viewDocumentResponse" type="ecm:viewDocumentResponse"/>
+					</xsd:choice>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>

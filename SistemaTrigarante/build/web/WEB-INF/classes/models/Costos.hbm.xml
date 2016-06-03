@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2016 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Costos" table="costos" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="buscador" class="models.Buscador" fetch="select">
+            <column name="idBuscador" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pagina" class="models.Pagina" fetch="select">
+            <column name="idPagina" not-null="true" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="costo" type="big_decimal">
+            <column name="costo" precision="10" not-null="true" />
+        </property>
+        <property name="conversiones" type="int">
+            <column name="conversiones" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

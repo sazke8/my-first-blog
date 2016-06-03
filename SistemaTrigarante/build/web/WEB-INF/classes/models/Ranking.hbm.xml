@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2016 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Ranking" table="ranking" catalog="trigarante" optimistic-lock="version">
+        <id name="idRaking" type="int">
+            <column name="idRaking" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="models.Usuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="rol" type="java.lang.Integer">
+            <column name="rol" />
+        </property>
+        <property name="mes" type="java.lang.Integer">
+            <column name="mes" />
+        </property>
+        <property name="semana1" type="java.lang.Integer">
+            <column name="semana1" />
+        </property>
+        <property name="semana2" type="java.lang.Integer">
+            <column name="semana2" />
+        </property>
+        <property name="semana3" type="java.lang.Integer">
+            <column name="semana3" />
+        </property>
+        <property name="semana4" type="java.lang.Integer">
+            <column name="semana4" />
+        </property>
+        <property name="semana5" type="java.lang.Integer">
+            <column name="semana5" />
+        </property>
+    </class>
+</hibernate-mapping>

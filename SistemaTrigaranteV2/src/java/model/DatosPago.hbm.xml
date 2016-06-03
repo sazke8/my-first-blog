@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2016 1:01:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.DatosPago" table="datosPago" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bancos" class="model.Bancos" fetch="select">
+            <column name="idBanco" not-null="true" />
+        </many-to-one>
+        <many-to-one name="metodoPago" class="model.MetodoPago" fetch="select">
+            <column name="idMetodoDePago" not-null="true" />
+        </many-to-one>
+        <property name="referencia" type="string">
+            <column name="referencia" length="35" />
+        </property>
+        <property name="numeroDeAutorizacion" type="int">
+            <column name="numeroDeAutorizacion" not-null="true" />
+        </property>
+        <property name="vencimiento" type="date">
+            <column name="vencimiento" length="10" not-null="true" />
+        </property>
+        <property name="titular" type="string">
+            <column name="titular" length="150" not-null="true" />
+        </property>
+        <property name="codigoDeSeguridad" type="int">
+            <column name="codigoDeSeguridad" not-null="true" />
+        </property>
+        <property name="numeroDeTarjeta" type="string">
+            <column name="numeroDeTarjeta" length="30" not-null="true" />
+        </property>
+        <property name="carrier" type="string">
+            <column name="carrier" length="50" not-null="true" />
+        </property>
+        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idDatosdePago" not-null="true" />
+            </key>
+            <one-to-many class="model.Pago" />
+        </set>
+    </class>
+</hibernate-mapping>

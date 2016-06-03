@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2016 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Usuario" table="usuario" catalog="trigarante" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="idUsuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="area" class="models.Area" fetch="select">
+            <column name="idArea" not-null="true" />
+        </many-to-one>
+        <many-to-one name="aseguradora" class="models.Aseguradora" fetch="select">
+            <column name="idAseguradora" not-null="true" />
+        </many-to-one>
+        <many-to-one name="campa&#195;&#177;a" class="models.Campa&#195;&#177;a" fetch="select">
+            <column name="idCampana" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rol" class="models.Rol" fetch="select">
+            <column name="idRol" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="usuario" length="30" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="30" not-null="true" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="apellidoPaterno" length="50" not-null="true" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="apellidoMaterno" length="50" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="30" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="30" not-null="true" />
+        </property>
+        <property name="fechaIngreso" type="timestamp">
+            <column name="fechaIngreso" length="19" not-null="true" />
+        </property>
+        <property name="fechaBaja" type="timestamp">
+            <column name="fechaBaja" length="19" not-null="true" />
+        </property>
+        <property name="commentIng" type="string">
+            <column name="commentIng" />
+        </property>
+        <property name="commentBaja" type="string">
+            <column name="commentBaja" />
+        </property>
+        <property name="estadoFinanzas" type="int">
+            <column name="estadoFinanzas" not-null="true" />
+        </property>
+        <property name="fechaReingreso" type="timestamp">
+            <column name="fechaReingreso" length="19" not-null="true" />
+        </property>
+        <property name="reingreso" type="string">
+            <column name="reingreso" />
+        </property>
+        <property name="isUcis" type="int">
+            <column name="isUCIS" not-null="true" />
+        </property>
+        <property name="isUsuarioVip" type="int">
+            <column name="isUsuarioVIP" not-null="true" />
+        </property>
+        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="models.Pago" />
+        </set>
+        <set name="solicituds" table="solicitud" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="models.Solicitud" />
+        </set>
+        <set name="asistencias" table="asistencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" />
+            </key>
+            <one-to-many class="models.Asistencia" />
+        </set>
+        <set name="registros" table="registro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" />
+            </key>
+            <one-to-many class="models.Registro" />
+        </set>
+        <set name="usuarioVipsForIdUsuario" table="usuarioVIP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" />
+            </key>
+            <one-to-many class="models.UsuarioVip" />
+        </set>
+        <set name="areaEjecutivos" table="areaEjecutivo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="models.AreaEjecutivo" />
+        </set>
+        <set name="paginaEjecutivos" table="paginaEjecutivo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" />
+            </key>
+            <one-to-many class="models.PaginaEjecutivo" />
+        </set>
+        <set name="rankings" table="ranking" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" />
+            </key>
+            <one-to-many class="models.Ranking" />
+        </set>
+        <set name="usuarioVipsForModificadoPor" table="usuarioVIP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="modificadoPor" />
+            </key>
+            <one-to-many class="models.UsuarioVip" />
+        </set>
+        <set name="nominas" table="nomina" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="models.Nomina" />
+        </set>
+        <set name="endosos" table="endoso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="models.Endoso" />
+        </set>
+        <set name="ucisesForActualizadoPor" table="UCIS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="actualizadoPor" not-null="true" />
+            </key>
+            <one-to-many class="models.Ucis" />
+        </set>
+        <set name="ucisesForIdUsuario" table="UCIS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idUsuario" not-null="true" />
+            </key>
+            <one-to-many class="models.Ucis" />
+        </set>
+        <set name="ucisesForAsignadoPor" table="UCIS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="asignadoPor" not-null="true" />
+            </key>
+            <one-to-many class="models.Ucis" />
+        </set>
+    </class>
+</hibernate-mapping>

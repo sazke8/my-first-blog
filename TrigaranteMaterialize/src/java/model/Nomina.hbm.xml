@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2016 9:30:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Nomina" table="nomina" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <property name="fechaPago" type="timestamp">
+            <column name="fechaPago" length="19" not-null="true" />
+        </property>
+        <property name="garantizado" type="big_decimal">
+            <column name="garantizado" precision="10" not-null="true" />
+        </property>
+        <property name="ajustes" type="big_decimal">
+            <column name="ajustes" precision="10" not-null="true" />
+        </property>
+        <property name="modulos" type="int">
+            <column name="modulos" not-null="true" />
+        </property>
+        <property name="asistencias" type="int">
+            <column name="asistencias" not-null="true" />
+        </property>
+        <property name="totalPagado" type="big_decimal">
+            <column name="totalPagado" precision="10" not-null="true" />
+        </property>
+        <property name="comentarios" type="string">
+            <column name="comentarios" length="50" />
+        </property>
+        <set name="pagos" table="pago" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idNomina" not-null="true" />
+            </key>
+            <one-to-many class="model.Pago" />
+        </set>
+    </class>
+</hibernate-mapping>

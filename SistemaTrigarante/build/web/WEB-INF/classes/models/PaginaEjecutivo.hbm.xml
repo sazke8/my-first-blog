@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2016 9:49:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.PaginaEjecutivo" table="paginaEjecutivo" catalog="trigarante" optimistic-lock="version">
+        <id name="idPaginaEjecutivo" type="int">
+            <column name="idPaginaEjecutivo" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="models.Usuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <property name="contador" type="int">
+            <column name="contador" not-null="true" />
+        </property>
+        <property name="actualizacion" type="timestamp">
+            <column name="actualizacion" length="19" not-null="true" />
+        </property>
+        <property name="permiso" type="java.lang.Byte">
+            <column name="permiso" />
+        </property>
+    </class>
+</hibernate-mapping>

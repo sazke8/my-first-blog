@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="trigarante"/>
+  <table-filter match-name="bancos"/>
+  <table-filter match-name="solicitud"/>
+  <table-filter match-name="tipoPago"/>
+  <table-filter match-name="modalPyme"/>
+  <table-filter match-name="asistencia"/>
+  <table-filter match-name="estadoRenovacion"/>
+  <table-filter match-name="campaña"/>
+  <table-filter match-name="modalAsistencia"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="registro"/>
+  <table-filter match-name="buscador"/>
+  <table-filter match-name="pagina"/>
+  <table-filter match-name="estadoSolicitud"/>
+  <table-filter match-name="paginaEjecutivo"/>
+  <table-filter match-name="modalSeguroDeHogar"/>
+  <table-filter match-name="costos"/>
+  <table-filter match-name="tipoPoliza"/>
+  <table-filter match-name="estado"/>
+  <table-filter match-name="area"/>
+  <table-filter match-name="catalogoDeConceptos"/>
+  <table-filter match-name="usuarioVIP"/>
+  <table-filter match-name="rol"/>
+  <table-filter match-name="pago"/>
+  <table-filter match-name="estadoDeCuenta"/>
+  <table-filter match-name="estadoNomina"/>
+  <table-filter match-name="modalGastosMedicos"/>
+  <table-filter match-name="UCIS"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="estadoAsistencia"/>
+  <table-filter match-name="nomina"/>
+  <table-filter match-name="endoso"/>
+  <table-filter match-name="aseguradora"/>
+  <table-filter match-name="selectorAsistencia"/>
+  <table-filter match-name="metodoPago"/>
+  <table-filter match-name="telefono"/>
+  <table-filter match-name="areaEjecutivo"/>
+  <table-filter match-name="tipoEgreso"/>
+  <table-filter match-name="tipoEndoso"/>
+  <table-filter match-name="modalSeguroDeVida"/>
+  <table-filter match-name="datosPago"/>
+  <table-filter match-name="ranking"/>
+</hibernate-reverse-engineering>

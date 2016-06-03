@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ver Usuario</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+            <h1 align="center">Gaceta Digital Politécnica</h1>
+            <h2 align="center">Borrador en Revisión</h2>
+        
+        
+                    <f:view>          
+                        <h:panelGrid style="padding-left: 80px !important; 
+                                             padding-top: 5px !important" >
+                            <h:form>
+                            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                            
+                            <p:inputText
+                                value ="#{mostrarBorradoresController.borrador.titulo}"
+                                size="90" 
+                                id="titulo"
+                                required="true"
+                                disabled="true"
+                                />
+                            <p:inputText 
+                                style="margin-top: 10px !important"
+                                value ="#{mostrarBorradoresController.borrador.subtitulo}"
+                                size="90" 
+                                id="subtitulo"
+                                required="true"
+                                disabled="true"
+                                /> 
+                            <p:editor 
+                                style="width: 750px !important;
+                                       margin-top: 10px !important;
+                                       margin-bottom: 10px !important;" 
+                                value ="#{mostrarBorradoresController.borrador.contenido}"
+                                id="contenido"
+                                required="true"
+                                disabled="true"
+                                />
+                            <p:inputText 
+                                style="margin-top: 10px !important"
+                                value ="#{mostrarBorradoresController.borrador.descripcion_img}"
+                                size="90" 
+                                id="descImg"
+                                required="true"
+                                disabled="true"
+                                />
+                            <p:inputText 
+                                style="margin-top: 10px !important"
+                                value ="#{mostrarBorradoresController.borrador.breve_descripcion}"
+                                size="90" 
+                                id="BreveDesc"
+                                required="true"
+                                disabled="true"
+                                />
+                            
+                                     
+                            <h:panelGrid columns="2" style="margin-top: 10px !important;">
+                                <p:calendar
+                                    value ="#{mostrarBorradoresController.borrador.fecha}"
+                                    id="fecha"
+                                    required="true"
+                                    disabled="true"
+                                      />
+                                
+                             <!--   <p:fileUpload mode="simple"
+                                               label="Seleccionar"
+                                               value="#{mostrarBorradoresController.borrador.imagen}"
+                                               disabled="true"/> -->
+                                
+                                
+                            </h:panelGrid>
+                            
+                             <p:separator/>
+                            
+                          
+                          </h:form>  
+                        </h:panelGrid>
+              
+            </f:view>
+        </h:body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2016 10:25:28 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Ucis" table="UCIS" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuarioByActualizadoPor" class="model.Usuario" fetch="select">
+            <column name="actualizadoPor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByIdUsuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuarioByAsignadoPor" class="model.Usuario" fetch="select">
+            <column name="asignadoPor" not-null="true" />
+        </many-to-one>
+        <property name="passwordPersonal" type="string">
+            <column name="passwordPersonal" length="50" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fechaCreacion" length="19" not-null="true" />
+        </property>
+        <property name="fechaActualizacion" type="timestamp">
+            <column name="fechaActualizacion" length="19" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

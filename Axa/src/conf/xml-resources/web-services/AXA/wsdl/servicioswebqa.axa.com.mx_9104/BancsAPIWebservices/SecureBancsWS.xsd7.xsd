@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" targetNamespace="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" version="1.0">
+ 
+<xs:simpleType name="productCode">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="1001"/>
+	  
+<xs:enumeration value="1002"/>
+	  
+<xs:enumeration value="1003"/>
+	  
+<xs:enumeration value="1004"/>
+	  
+<xs:enumeration value="1005"/>
+	  
+<xs:enumeration value="1006"/>
+	  
+<xs:enumeration value="1007"/>
+	  
+<xs:enumeration value="1008"/>
+	  
+<!-- Added For CR 215 STARTS -->
+			
+<xs:enumeration value="1012"/>
+	  
+<!-- Added For CR 215 ENDS -->
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="policyType">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="I"/>
+	  
+<xs:enumeration value="C"/>
+	  
+<xs:enumeration value="F"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="paymentFrequency">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="Weekly"/>
+	  
+<xs:enumeration value="Bi-Weekly"/>
+	  
+<xs:enumeration value="FortNightly"/>
+	  
+<xs:enumeration value="Monthly"/>
+	  
+<xs:enumeration value="Quarterly"/>
+	  
+<xs:enumeration value="SemiAnnual"/>
+	  
+<xs:enumeration value="Annual"/>
+	  
+<xs:enumeration value="Cash"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="paymentMode">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="Cash"/>
+	  
+<xs:enumeration value="Cheque"/>
+	  
+<xs:enumeration value="Debit"/>
+	  
+<xs:enumeration value="AMEX"/>
+	  
+<xs:enumeration value="VISA"/>
+	  
+<xs:enumeration value="MasterCard"/>
+	  
+<xs:enumeration value="PayrollDiscount"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="policyDurationUnit">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="Days"/>
+	  
+<xs:enumeration value="Month"/>
+	  
+<xs:enumeration value="Year"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="currency">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="MXN"/>
+	  
+<xs:enumeration value="USD"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="EndorsementType">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="A"/>
+	  
+<xs:enumeration value="D"/>
+	  
+<xs:enumeration value="B"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="paymentByAgent">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:pattern value="YES|NO"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="policyFeePaymentFrequency">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="First"/>
+	  
+<xs:enumeration value="Last"/>
+	  
+<xs:enumeration value="Installments"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="typeOfEquipment">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="EE"/>
+	  
+<xs:enumeration value="AD"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="totalPremium">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="netPremium">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="installmentSurcharge">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="tax">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="policyFee">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="endorsementFee">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="commission">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="cession">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="discount">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="UDI">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="coinsurerPremium">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="coinsurerPolicyFee">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="coinsurerInstSurcharge">
+	
+<xs:restriction base="xs:decimal">
+	  
+<xs:fractionDigits value="2"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="deductibleType">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="fixed"/>
+	  
+<xs:enumeration value="variable"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="executeOperation">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:pattern value="YES|NO"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="action">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="insert"/>
+	  
+<xs:enumeration value="update"/>
+	  
+<xs:enumeration value="delete"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="coverAction">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:pattern value="YES|NO"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<xs:simpleType name="searchType">
+	
+<xs:restriction base="xs:string">
+	  
+<xs:enumeration value="POLICY"/>
+	  
+<xs:enumeration value="QUOTE"/>
+	  
+<xs:enumeration value="RENEWAL_QUOTE"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+<!-- Party Information -->
+  
+<xs:complexType name="partyInfo">
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="0" name="partyCode" type="xs:string"/>
+	  
+<!-- Output Only -->
+	  
+<xs:element minOccurs="0" name="partyRole" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="partyType" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="initial" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Name of Individual or Organization -->
+	  
+<xs:element minOccurs="0" name="fatherLastName" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="motherLastName" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="gender" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Can be provided for Quick Quote -->
+	  
+<xs:element minOccurs="0" name="dateofBirth" type="xs:date"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Can be provided for Quick Quote -->
+	  
+<xs:element minOccurs="0" name="taxId" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="occupation" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="curpId" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="voterId" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="parentPartyCode" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="maritalStatus" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="profession" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="benficiaryPercentage" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Applicable for Beneficiary -->
+	  
+<xs:element minOccurs="0" name="cancellationAllowed" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Applicable for Accidental Beneficiary -->
+	  
+<xs:element minOccurs="0" name="mainDriver" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Applicable for Driver -->
+	  
+<xs:element minOccurs="0" name="isAlsoPolicyHolder" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="contactInfo" nillable="true" type="tns:contactInfo"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="dxnInfo" type="tns:dxnInfo"/>
+	  
+<!-- Input / Output -->
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="contactInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="contactType" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="houseNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="street" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="interiorNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="neighborhood" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="city" type="xs:string"/>
+	  
+<!-- Can be provided for Quick Quote -->
+	  
+<xs:element minOccurs="0" name="state" type="xs:string"/>
+	  
+<!-- Can be provided for Quick Quote -->
+	  
+<xs:element minOccurs="0" name="country" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="email" type="xs:string"/>
+	  
+<!-- Can be provided for Quick Quote -->
+	  
+<xs:element minOccurs="0" name="extension" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="neighborhoodDesc" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="dxnInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="0" name="employeeNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="payrollCompanyIDDesc" type="xs:string"/>
+	  
+<!-- Removed for CR-198 -->
+	  
+<!-- xs:element minOccurs="0" name="organizationID" type="xs:string" /> 
+			<xs:element minOccurs="0" name="organizationName" type="xs:string" / -->
+	  
+<xs:element minOccurs="0" name="branchID" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="branchName" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="officeID" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="officeDescription" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="departmentID" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="departmentDescription" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="sellerID" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="dependencyID" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="dependencyName" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="nationality" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="businessAcitivity" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<!-- Party Information End -->
+  
+<!-- Receipts Information -->
+  
+<xs:complexType name="refundReceiptsInfo">
+	
+<!-- Output only -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="netPremium" type="tns:netPremium"/>
+	  
+<xs:element minOccurs="1" name="installmentSurcharge" type="tns:installmentSurcharge"/>
+	  
+<xs:element minOccurs="1" name="tax" type="tns:tax"/>
+	  
+<xs:element minOccurs="1" name="policyFee" type="tns:policyFee"/>
+	  
+<xs:element minOccurs="1" name="endorsementFee" type="tns:endorsementFee"/>
+	  
+<xs:element minOccurs="1" name="commission" type="tns:commission"/>
+	  
+<xs:element minOccurs="1" name="cession" type="tns:cession"/>
+	  
+<xs:element minOccurs="1" name="UDI" type="tns:UDI"/>
+	  
+<xs:element minOccurs="1" name="coinsurerPremium" type="tns:coinsurerPremium"/>
+	  
+<xs:element minOccurs="1" name="coinsurerPolicyFee" type="tns:coinsurerPolicyFee"/>
+	  
+<xs:element minOccurs="1" name="coinsurerInstSurcharge" type="tns:coinsurerInstSurcharge"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="receiptsInfo">
+	
+<!-- Output only -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="0" name="applicationDate" type="xs:dateTime"/>
+	  
+<xs:element minOccurs="0" name="operationType" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="operationID" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="totalPremium" type="tns:totalPremium"/>
+	  
+<xs:element minOccurs="1" name="netPremium" type="tns:netPremium"/>
+	  
+<xs:element minOccurs="1" name="installmentSurcharge" type="tns:installmentSurcharge"/>
+	  
+<xs:element minOccurs="1" name="tax" type="tns:tax"/>
+	  
+<xs:element minOccurs="1" name="policyFee" type="tns:policyFee"/>
+	  
+<xs:element minOccurs="1" name="endorsementFee" type="tns:endorsementFee"/>
+	  
+<xs:element minOccurs="1" name="commission" type="tns:commission"/>
+	  
+<xs:element minOccurs="1" name="cession" type="tns:cession"/>
+	  
+<xs:element minOccurs="1" name="discount" type="tns:discount"/>
+	  
+<xs:element minOccurs="1" name="UDI" type="tns:UDI"/>
+	  
+<xs:element minOccurs="1" name="coinsurerPremium" type="tns:coinsurerPremium"/>
+	  
+<xs:element minOccurs="1" name="coinsurerPolicyFee" type="tns:coinsurerPolicyFee"/>
+	  
+<xs:element minOccurs="1" name="coinsurerInstSurcharge" type="tns:coinsurerInstSurcharge"/>
+	  
+<xs:element minOccurs="1" name="refundReceiptsInfo" type="tns:refundReceiptsInfo"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<!-- Receipts Information End -->
+  
+<!-- Coverage Information -->
+  
+<xs:complexType name="coverageInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="coverCode" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="coverApplicable" type="tns:coverAction"/>
+	  
+<!-- Input Only; Used only for Package / Cover mapping; If No, Remove this 
+			cover from the Vehicle; If Yes, Add to the Vehicle -->
+	  
+<xs:element minOccurs="0" name="deductibleType" type="tns:deductibleType"/>
+	  
+<xs:element minOccurs="0" name="deductible" type="xs:decimal"/>
+	  
+<xs:element minOccurs="0" name="sumInsured" type="xs:decimal"/>
+	  
+<xs:element minOccurs="0" name="premium" type="xs:decimal"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="adaptationsInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="identifier" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="description" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="sumInsured" type="xs:decimal"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<!-- CR-214 STARTED-->
+  
+<xs:complexType name="rcAdaptationsInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="identifier" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="description" type="xs:string"/>
+	  
+<!-- <xs:element minOccurs="1" name="sumInsured" type="xs:decimal" /> -->
+	</xs:sequence>
+  </xs:complexType>
+  
+<!--CR-214 END-->
+  
+<xs:complexType name="specialEquipInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="identifier" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="description" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="sumInsured" type="xs:decimal"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<!-- Coverage Information End -->
+  
+<!-- Risk Information -->
+  
+<xs:complexType name="riskInfo">
+	
+<!-- All the Vehicle details will be validated as per the vehicle catalog -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="0" name="riskNumber" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="riskDescription" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="relatedVehicleSerialno" type="xs:string"/>
+	  
+<!-- Output only, Serial Number of Trailers in Blanket Policies -->
+	  
+<xs:element minOccurs="0" name="VIN" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="subBranch" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="vehicleType" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="classification" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="vehicleCode" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Mandatory either 'Vehicle Code' or 'Brand, Model and Sub Model' for 
+			Quick Quote/ Quote/ Issuance -->
+	  
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<!-- Mandatory -->
+	  
+<xs:element minOccurs="0" name="brand" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Mandatory either 'Vehicle Code' or 'Brand, Model and Sub Model' for 
+			Quick Quote/ Quote/ Issuance -->
+	  
+<xs:element minOccurs="0" name="versionCode" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="version" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="model" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Mandatory either 'Vehicle Code' or 'Brand, Model and Sub Model' for 
+			Quick Quote/ Quote/ Issuance -->
+	  
+<xs:element minOccurs="0" name="subModel" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Mandatory either 'Vehicle Code' or 'Brand, Model and Sub Model' for 
+			Quick Quote/ Quote/ Issuance -->
+	  
+<xs:element minOccurs="0" name="lineCode" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="line" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="licencePlate" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="engineNumber" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="use" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="frequencyOfUse" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="typeOfZone" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="zoneOfCirculation" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="service" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="cargo" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+	  
+<!-- 
+			Output only -->
+	  
+<xs:element minOccurs="0" name="plateIssueState" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="occupants" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="tonnage" type="xs:decimal"/>
+	  
+<!-- 
+			Output only -->
+	  
+<xs:element minOccurs="0" name="kmsrecorded" type="xs:decimal"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="antiTheftDevice" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="RFV" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="typeOfSumInsured" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="commercialPercentage" type="xs:decimal"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="invoiceAgreedValue" type="xs:decimal"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="invoiceDate" type="xs:date"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="registro" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="trailerUsed" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="smallTrailerUsed" type="xs:boolean"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="validationCESVI" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="validationOCRA" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="vehicleAge" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="armored" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="salvaged" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="discount" type="xs:decimal"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="RiskPreventionProgram" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="RiskPreventionName" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="brandId" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="vehicleTypeId" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="AmisCode" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="deductibleType" type="tns:deductibleType"/>
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="riskPartyInfo" nillable="true" type="tns:partyInfo"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="riskCoverageInfo" nillable="true" type="tns:coverageInfo"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="adaptationsInfo" type="tns:adaptationsInfo"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="specialEquipInfo" type="tns:specialEquipInfo"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="riskRecieptsInfo" nillable="true" type="tns:receiptsInfo"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="serviceDesc" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="useDesc" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="cargoTypeDesc" type="xs:string"/>
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="rcAdaptationsInfo" type="tns:rcAdaptationsInfo"/>
+	  
+<!-- Input / Output -->
+	  
+<!--Added for CR-214-->	
+	</xs:sequence>
+  </xs:complexType>
+  
+<!-- Risk Information End -->
+  
+<!-- Policy Information -->
+  
+<xs:complexType name="policyInfo">
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="0" name="fichaCode" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="fichaVersion" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="fichaYear" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="subgroup" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="policyNumber" type="xs:string"/>
+	  
+<!-- Output Only; PolicyNumber for Issuance/ Quote Number for Quote/ Blank 
+			for Quick Quote -->
+	  
+<xs:element minOccurs="0" name="policyType" type="tns:policyType"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="companyId" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="policyApplicationDate" type="xs:dateTime"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="policyStartDate" type="xs:dateTime"/>
+	  
+<!-- Input / Output ; should provide (Mandatory) only if Policy Duration 
+			and Duration Unit are blank -->
+	  
+<xs:element minOccurs="0" name="policyExpiryDate" type="xs:dateTime"/>
+	  
+<!-- Input / Output ; should provide (Mandatory) only if Policy Duration 
+			and Duration Unit are blank -->
+	  
+<xs:element minOccurs="0" name="policyIssueDate" type="xs:dateTime"/>
+	  
+<xs:element minOccurs="0" name="policyStatus" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="cancelDate" type="xs:date"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="cancelReason" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="groupId" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="contractNumber" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="sector" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="paymentMode" type="tns:paymentMode"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Mandatory for Quick Quote/Quote/Issuance -->
+	  
+<xs:element minOccurs="0" name="currency" type="tns:currency"/>
+	  
+<!-- Input / Output -->
+	  
+<!-- Mandatory for Quick Quote/Quote/Issuance -->
+	  
+<xs:element minOccurs="0" name="policyDuration" type="xs:integer"/>
+	  
+<!-- Input / Output ; Input (Mandatory) only if Policy Start Date and Policy 
+			Expiry Date are blank -->
+	  
+<xs:element minOccurs="0" name="policyDurationUnit" type="tns:policyDurationUnit"/>
+	  
+<!-- Input / Output ; Input (Mandatory) only if Policy Start Date and Policy 
+			Expiry Date are blank -->
+	  
+<xs:element minOccurs="0" name="paymentByAgent" type="tns:paymentByAgent"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="businessType" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="policyFeePaymentFrequency" type="tns:policyFeePaymentFrequency"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="bolsaApprovalCode" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="bolsaPercentage" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="bolsaReserveId" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="bolsaAmount" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="cupoCode" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="agentWorkOrderNumber" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element maxOccurs="unbounded" minOccurs="0" name="campaignCode" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="crossSellingCode" type="xs:string"/>
+	  
+<!-- Input / Output -->
+	  
+<xs:element minOccurs="0" name="commissionPercentage" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="previousPolicy" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="poliAnnualFactor" type="xs:string"/>
+	  
+<!-- Output only -->
+	  
+<xs:element minOccurs="0" name="netPremium" type="tns:netPremium"/>
+	  
+<xs:element minOccurs="0" name="salesChannelId" type="xs:string"/>
+	  
+<!-- START : Added for CR-198 -->
+	  
+<xs:element minOccurs="0" name="businessTypeCC" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="organizationID" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="organizationName" type="xs:string"/>
+	  
+<!-- END : Added for CR-198 -->
+	  
+<!-- Added For CR 181 STARTS -->
+  
+<xs:element minOccurs="0" name="collectionDay" type="xs:integer"/> 
+<!-- Input / Output -->
+  
+<!-- Added For CR 181 ENDS -->
+	  
+<!-- Added For CR 215 STARTS --> 
+	  
+<xs:element minOccurs="0" name="rcFolioNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="subSegmentoNegocio" type="xs:string"/>
+  
+<!-- Added For CR 215 ENDS -->
+		
+<!-- Added For CR 264 STARTS --> 
+		
+<xs:element minOccurs="0" name="underwriting" type="xs:string"/>
+		
+<xs:element minOccurs="0" name="authorized" type="xs:string"/>
+		
+<!-- Added For CR 264 ENDS -->
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="otherPolicyInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="paymentFrequency" type="tns:paymentFrequency"/>
+	  
+<xs:element minOccurs="0" name="package" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+  
+<!-- Policy Information End -->
+  
+<xs:complexType name="cardInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	   
+<!-- Added for Credit Card Change Endorsement -->
+   
+<xs:element minOccurs="0" name="typeOfOperation" type="xs:string"/>
+  
+<!-- Added for CR 266 Related Changes -->
+	  
+<xs:element minOccurs="0" name="activeCard" type="xs:boolean"/>
+	  
+<!-- Added for CR-162 -->
+	  
+<xs:element minOccurs="1" name="prioritySequenceNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="memberSince" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="cardNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="accountNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="expiryMonthYear" type="xs:string"/>
+	  
+<!-- Removed for CR-198 -->
+	  
+<!-- xs:element minOccurs="0" name="businessType" type="xs:string" / -->
+	  
+<xs:element minOccurs="0" name="clabeNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="plasticNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="firstName" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="fathersLastName" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="mothersLastName" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="securityCode" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="inmediatePayment" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="bankCode" type="xs:string"/>
+	  
+<!-- Output only -->
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="agentInfo">
+	
+<!-- Input / Output -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="1" name="agentCode" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="mainAgent" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="participationPercentage" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="cessionPercentage" type="xs:decimal"/>
+	
+<!-- start CR 264 -->
+	  
+<xs:element minOccurs="0" name="centroProduccion" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="promotorCode" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="ejecutivoComercial" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="oficina" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="zona" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="territorio" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="vicepresidencia" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="compania" type="xs:string"/>
+	  
+<xs:element minOccurs="0" name="tipoPersona" type="xs:string"/>
+	  
+<!-- end  CR 264 -->
+	</xs:sequence>
+  </xs:complexType>
+  
+<xs:complexType name="errorDetails">
+	
+<!-- Output only -->
+	
+<xs:sequence>
+	  
+<xs:element minOccurs="0" name="riskNumber" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="errorCode" type="xs:string"/>
+	  
+<xs:element minOccurs="1" name="errorMessage" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+</xs:schema>

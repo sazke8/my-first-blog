@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:bancsApi="http://www.tcs.com/BancsAPIWebservices/BancsAPIWebservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://axa.mx.bancs.integrator" xmlns:bancs="http://webservices" xmlns:fic="http://mx.com.axa.ws/FicherosVehiculosWS/" xmlns:ecm="http://axa.mx/ecm" xmlns:vis="http://axa.mx/visor" xmlns:printing="http://axa.mx/impresion/GenerateDocumentService/" xmlns:cmn="http://www.tcs.com/BancsAPIWebservicesCommon/BancsAPIWebservicesCommon" elementFormDefault="qualified" targetNamespace="http://webservices">
+			
+<xsd:import namespace="http://www.tcs.com/BancsAPIWebservices/BancsAPIWebservices" schemaLocation="SecureBancsWS.xsd3.xsd"/>
+			
+<xsd:import namespace="http://mx.com.axa.ws/FicherosVehiculosWS/" schemaLocation="SecureBancsWS.xsd4.xsd"/>
+			
+<xsd:element name="getCatalogueDetails">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:catalogueRequest"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="getCatalogueDetailsResponse">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:catalogueResponse"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="getEndorsementDetails">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:endorsementRequest"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="getEndorsementDetailsResponse">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:endorsementResponse"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="getIssuanceDetails">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:issuanceRequest"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="getIssuanceDetailsResponse">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:issuanceResponse"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="searchDetails">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:searchRequest"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="searchDetailsResponse">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element ref="bancsApi:searchResponse"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="version" type="xsd:string"/>
+			
+<xsd:element name="versionResponse" type="xsd:string"/>
+		</xsd:schema>

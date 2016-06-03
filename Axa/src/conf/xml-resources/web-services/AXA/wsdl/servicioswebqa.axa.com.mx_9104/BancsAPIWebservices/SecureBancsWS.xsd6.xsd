@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://axa.mx/ecm" targetNamespace="http://axa.mx/ecm" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	
+<xsd:complexType name="abstractDocument" abstract="true">
+		
+<xsd:sequence>
+			
+<xsd:element name="UserId" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="Pwd" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="ProyectoId" type="xsd:unsignedByte" minOccurs="1"/>
+			
+<xsd:element name="ExpId" type="xsd:unsignedByte" minOccurs="1"/>
+			
+<xsd:element name="AgentId" type="xsd:string" minOccurs="1"/>
+			
+<xsd:element name="ConfiguracionXml" type="xsd:unsignedByte" minOccurs="1"/>
+			
+<xsd:element name="filtros" minOccurs="1">
+				
+<xsd:complexType>
+					
+<xsd:sequence>
+						
+<xsd:element name="filtrop" type="xsd:string" minOccurs="1"/>
+						
+<xsd:element name="filtroh" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+<xsd:element name="Rama" type="xsd:unsignedByte" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+<xsd:complexType name="abstractDocumentResponse" abstract="true"/>
+	
+<xsd:complexType name="downloadDocument">
+		
+<xsd:complexContent>
+			
+<xsd:extension base="tns:abstractDocument"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+<xsd:complexType name="downloadDocumentResponse">
+		
+<xsd:complexContent>
+			
+<xsd:extension base="tns:abstractDocumentResponse">
+				
+<xsd:sequence>
+					
+<xsd:element name="DownloadDocumentUrl" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+<xsd:complexType name="viewDocument">
+		
+<xsd:complexContent>
+			
+<xsd:extension base="tns:abstractDocument"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+<xsd:complexType name="viewDocumentResponse">
+		
+<xsd:complexContent>
+			
+<xsd:extension base="tns:abstractDocumentResponse">
+				
+<xsd:sequence>
+					
+<xsd:element name="ViewDocumentUrl" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

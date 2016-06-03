@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2016 10:25:28 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Cliente" table="cliente" catalog="trigarante" optimistic-lock="version">
+        <id name="idCliente" type="int">
+            <column name="idCliente" />
+            <generator class="assigned" />
+        </id>
+        <property name="rfc" type="string">
+            <column name="rfc" length="13" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="25" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="apPat" type="string">
+            <column name="apPat" length="50" not-null="true" />
+        </property>
+        <property name="apMat" type="string">
+            <column name="apMat" length="50" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="100" />
+        </property>
+        <property name="telefono" type="int">
+            <column name="telefono" not-null="true" />
+        </property>
+        <property name="telefonoOpc" type="int">
+            <column name="telefono_opc" not-null="true" />
+        </property>
+        <property name="correoOpc" type="string">
+            <column name="correo_opc" length="50" />
+        </property>
+        <property name="fechaNac" type="date">
+            <column name="fechaNac" length="10" not-null="true" />
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="nacionalidad" length="30" />
+        </property>
+        <set name="registros" table="registro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCliente" />
+            </key>
+            <one-to-many class="model.Registro" />
+        </set>
+    </class>
+</hibernate-mapping>

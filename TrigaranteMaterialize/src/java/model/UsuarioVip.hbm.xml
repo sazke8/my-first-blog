@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2016 9:30:42 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.UsuarioVip" table="usuarioVIP" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuarioByIdUsuario" class="model.Usuario" fetch="select">
+            <column name="idUsuario" />
+        </many-to-one>
+        <many-to-one name="usuarioByModificadoPor" class="model.Usuario" fetch="select">
+            <column name="modificadoPor" />
+        </many-to-one>
+        <property name="estado" type="int">
+            <column name="estado" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="50" />
+        </property>
+        <property name="fechaCreacion" type="timestamp">
+            <column name="fechaCreacion" length="19" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="fechaModificacion" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

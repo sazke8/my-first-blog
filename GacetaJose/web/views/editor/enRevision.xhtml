@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Borradores en Revisión</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1 align="center">Gaceta Digital Politécnica</h1>
+        <h2 align="center"> Artículos en Revisión</h2>
+        <p:separator style="width: 800px !important"/>
+        <h:form>
+            <p:dataTable value="#{mostrarBorradoresController.enviados}" 
+                         var="borrador" 
+                         style="width: 800px !important; 
+                                display: block;
+                                margin-left: auto;
+                                margin-right: auto;
+                                margin-top: 10px !important">
+                
+                <p:column headerText="Título" >
+                  <h:outputText value="#{borrador.titulo}"/>
+                </p:column> 
+                
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{borrador.fecha}"/>
+                </p:column>
+                
+                <p:column>
+                    <p:commandButton action="verBorrEnv.xhtml"
+                                     value="Ver"
+                                     immediate="true"
+                                     actionListener="#{mostrarBorradoresController.editarBorrador}"
+                                     ajax="false"
+                                     image="ui-icon-circle-zoomin">
+                        
+                        <f:param name="idArticulo" 
+                                 value="#{borrador.idArticulo}" />
+                    </p:commandButton>
+                    
+                </p:column>
+         </p:dataTable>
+        </h:form>     
+    </h:body>
+</html>

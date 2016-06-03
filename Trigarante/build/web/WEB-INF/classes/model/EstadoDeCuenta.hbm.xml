@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 23, 2016 10:25:28 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.EstadoDeCuenta" table="estadoDeCuenta" catalog="trigarante" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="area" class="model.Area" fetch="select">
+            <column name="area" />
+        </many-to-one>
+        <many-to-one name="catalogoDeConceptos" class="model.CatalogoDeConceptos" fetch="select">
+            <column name="concepto" />
+        </many-to-one>
+        <many-to-one name="tipoEgreso" class="model.TipoEgreso" fetch="select">
+            <column name="tipoEgreso" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="tipo" type="java.lang.Integer">
+            <column name="tipo" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="250" />
+        </property>
+        <property name="monto" type="java.lang.Float">
+            <column name="monto" precision="12" scale="0" />
+        </property>
+        <property name="idAseguradora" type="java.lang.Integer">
+            <column name="idAseguradora" />
+        </property>
+    </class>
+</hibernate-mapping>
